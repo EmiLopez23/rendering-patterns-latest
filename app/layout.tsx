@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import map from "@/public/map.svg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,47 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div>
+          <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-50">
+            <div className="fixed inset-0 overflow-hidden opacity-75 bg-[#f8fafb]">
+              <Image
+                alt="World Map"
+                src={map}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+            </div>
+            <main className="flex flex-col items-center flex-1 px-4 sm:px-20 w-full text-center z-10 py-8 sm:py-20">
+              <h1 className="mb-4">Edge Middleware</h1>
+              <p>Dynamic content close to your users.</p>
+              <a
+                className="flex items-center mt-2 text-md sm:text-lg text-blue-500 hover:underline"
+                href="https://vercel.com/docs"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Documentation
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  stroke="currentColor"
+                  className="ml-1"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  shapeRendering="geometricPrecision"
+                >
+                  <path d="M5 12h14" />
+                  <path d="M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <div className="w-full max-w-xl mx-auto">{children}</div>
+            </main>
+          </div>
+        </div>
       </body>
     </html>
   );
