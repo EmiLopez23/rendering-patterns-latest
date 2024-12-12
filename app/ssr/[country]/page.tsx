@@ -5,6 +5,8 @@ import { getDiscountedPrice } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic'
+
 const getCurrentTime = async (): Promise<TimeZone> => {
   const time = await fetch(
     "https://timeapi.io/api/time/current/zone?timeZone=America%2FArgentina%2FBuenos_Aires"
@@ -71,7 +73,7 @@ export default async function SSRHome({
               />
               <span>{"."}</span>
             </div>
-            <small>Last checked: {dateTime}</small>
+            <small className="text-black">Last checked: {dateTime}</small>
           </div>
           <a
             href={
@@ -90,11 +92,11 @@ export default async function SSRHome({
       <p className="text-gray-500 mt-3 text-sm text-center">
         This is an SSR version, compare with the{" "}
         <span className="underline">
-          <Link href="/static">static</Link>
+          <Link href="/">static</Link>
         </span>{" "}
         or{" "}
         <span className="underline">
-          <Link href="/edge">Edge</Link>
+          <Link href="/csr/ar">CSR</Link>
         </span>{" "}
         version.
       </p>

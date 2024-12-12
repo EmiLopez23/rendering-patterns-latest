@@ -109,7 +109,7 @@ export default function CSRHome({
       <p className="text-gray-500 mt-3 text-sm text-center">
         This is an CSR version, compare with the{" "}
         <span className="underline">
-          <Link href="/static">static</Link>
+          <Link href="/">static</Link>
         </span>{" "}
         or{" "}
         <span className="underline">

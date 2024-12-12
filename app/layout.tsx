@@ -41,8 +41,6 @@ export default function RootLayout({
               />
             </div>
             <main className="flex flex-col items-center flex-1 px-4 sm:px-20 w-full text-center z-10 py-8 sm:py-20">
-              <h1 className="mb-4">Edge Middleware</h1>
-              <p>Dynamic content close to your users.</p>
               <a
                 className="flex items-center mt-2 text-md sm:text-lg text-blue-500 hover:underline"
                 href="https://vercel.com/docs"

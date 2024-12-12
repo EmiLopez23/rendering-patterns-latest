@@ -3,9 +3,11 @@ import api from "@/api";
 import Link from "next/link";
 import { TimeZone } from "@/types";
 
+export const revalidate = 5;
+
 const getCurrentTime = async (): Promise<TimeZone> => {
   const time = await fetch(
-    "https://timeapi.io/api/time/current/zone?timeZone=America%2FArgentina%2FBuenos_Aires"
+    "https://timeapi.io/api/time/current/zone?timeZone=America%2FArgentina%2FBuenos_Aires",
   );
   const resp = await time.json();
   return resp;
